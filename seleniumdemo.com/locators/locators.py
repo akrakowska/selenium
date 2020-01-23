@@ -3,6 +3,15 @@ from selenium.webdriver.common.by import By
 
 class GenericLocators:
     body_tag = (By.TAG_NAME, "body")
+    message_div = (By.XPATH, "//div[@class='woocommerce-message']")
+    error_msg_ul = (By.XPATH, "//ul[@class='woocommerce-error']")
+
+
+class NavigationMenuLocators:
+    cart_span = (By.XPATH, "//span[@class='nav__title' and text()='Cart']")
+    shop_span = (By.XPATH, "//span[@class='nav__title' and text()='Shop']")
+    my_account_span = (By.XPATH, "//span[@class='nav__title' and text()='My account']")
+    page_title_span = (By.XPATH, "//span[@class='trail-end']")
 
 
 class MyAccountMenuLocators:
@@ -19,8 +28,6 @@ class BillingAddressLocators:
     city_input = (By.ID, "billing_city")
     phone_input = (By.ID, "billing_phone")
     save_address_button = (By.XPATH, "//button[@value='Save address']")
-    message_div = (By.XPATH, "//div[@class='woocommerce-message']")
-    allert_address_ul = (By.XPATH, "//ul[@class='woocommerce-error']")
 
 
 class ShippingAddressLocators:
@@ -33,8 +40,6 @@ class ShippingAddressLocators:
     city_input = (By.ID, "shipping_city")
     phone_input = (By.ID, "shipping_phone")
     save_address_button = (By.XPATH, "//button[@value='Save address']")
-    message_div = (By.XPATH, "//div[@class='woocommerce-message']")
-    allert_address_ul = (By.XPATH, "//ul[@class='woocommerce-error']")
 
 
 class MyAccountPageLocators:
@@ -43,5 +48,10 @@ class MyAccountPageLocators:
     reg_email_input = (By.ID, "reg_email")
     reg_password_input = (By.ID, "reg_password")
     my_account_link = (By.XPATH, "//li[@id='menu-item-22']//a")
-    error_msg = (By.XPATH, "//ul[@class='woocommerce-error']//li")
-    logout_link = (By.LINK_TEXT, "Logout")
+    login_msg_div = (By.XPATH, "//div[@class='woocommerce-MyAccount-content']")
+
+
+class ResetPasswordLocators:
+    lost_password_link = (By.LINK_TEXT, "Lost your password?")
+    user_login_input = (By.ID, "user_login")
+    reset_password_button = (By.XPATH, "//button[@value='Reset password']")

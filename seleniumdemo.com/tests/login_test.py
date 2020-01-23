@@ -1,3 +1,4 @@
+from pages.generic import Generic
 from pages.my_account_page import MyAccountPage
 import pytest
 import allure
@@ -13,7 +14,7 @@ class TestLogIn:
         my_account_page.open_page()
         my_account_page.log_in("test@mail.com", "haslotest12")
 
-        assert my_account_page.is_logout_link_displayed()
+        assert "Hello test" in my_account_page.get_login_msg_text()
 
     @allure.title("Login failed")
     @allure.description("Login using incorrect data")
@@ -21,5 +22,6 @@ class TestLogIn:
         my_account_page = MyAccountPage(self.driver)
         my_account_page.open_page()
         my_account_page.log_in("test@mail.com", "invalidpassword")
+        generic = Generic(self.driver)
 
-        assert "ERROR: Incorrect username or password." in my_account_page.get_error_msg()
+        assert "ERROR: Incorrect username or password." in generic.get_error_msg_text()
