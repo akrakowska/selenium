@@ -5,33 +5,31 @@ import logging
 import allure
 
 
-class BillingAddressPage:
+class ShippingAddressPage:
 
     def __init__(self, driver):
         self.driver = driver
-        # Billing Address Page elements
-        self.first_name_input = locators.BillingAddressLocators.first_name_input
-        self.last_name_input = locators.BillingAddressLocators.last_name_input
+        # Shipping Address Page elements
+        self.first_name_input = locators.ShippingAddressLocators.first_name_input
+        self.last_name_input = locators.ShippingAddressLocators.last_name_input
         self.addresses_link = locators.MyAccountMenuLocators.addresses_link
-        self.edit_link = locators.BillingAddressLocators.edit_billing_address_link
-        self.country_select = locators.BillingAddressLocators.country_select
-        self.address_input = locators.BillingAddressLocators.address_input
-        self.postcode_input = locators.BillingAddressLocators.postcode_input
-        self.city_input = locators.BillingAddressLocators.city_input
-        self.phone_input = locators.BillingAddressLocators.phone_input
-        self.email_input = locators.BillingAddressLocators.email_input
-        self.save_address_button = locators.BillingAddressLocators.save_address_button
+        self.edit_link = locators.ShippingAddressLocators.edit_shipping_address_link
+        self.country_select = locators.ShippingAddressLocators.country_select
+        self.address_input = locators.ShippingAddressLocators.address_input
+        self.postcode_input = locators.ShippingAddressLocators.postcode_input
+        self.city_input = locators.ShippingAddressLocators.city_input
+        self.save_address_button = locators.ShippingAddressLocators.save_address_button
         self.msg_div = locators.GenericLocators.message_div
         self.error_msg_ul = locators.GenericLocators.error_msg_ul
         self.body_tag = locators.GenericLocators.body_tag
         self.logger = logging.getLogger(__name__)
 
-    @allure.step("Open billing addresses page")
-    def open_edit_billing_address(self):
-        self.logger.info("Open billing addresses page")
+    @allure.step("Open shipping addresses page")
+    def open_edit_shipping_address(self):
+        self.logger.info("Open shipping addresses page")
         self.driver.find_element(*self.addresses_link).click()
         self.driver.find_element(*self.edit_link).click()
-        allure.attach(self.driver.get_screenshot_as_png(), name='edit_billing', attachment_type=AttachmentType.PNG)
+        allure.attach(self.driver.get_screenshot_as_png(), name='edit_shipping', attachment_type=AttachmentType.PNG)
 
     @allure.step("Set personal data: firstname - {1}, lastname - {2}")
     def set_personal_data(self, first_name, last_name):
@@ -54,19 +52,6 @@ class BillingAddressPage:
         self.driver.find_element(*self.postcode_input).send_keys(postcode)
         self.driver.find_element(*self.city_input).send_keys(city)
         allure.attach(self.driver.get_screenshot_as_png(), name='set_address', attachment_type=AttachmentType.PNG)
-
-    @allure.step("Set phone number - {1}")
-    def set_phone_number(self, number):
-        self.logger.info("Set phone number - {n}".format(n=number))
-        self.driver.find_element(*self.phone_input).send_keys(number)
-        allure.attach(self.driver.get_screenshot_as_png(), name='set_phone_number', attachment_type=AttachmentType.PNG)
-
-    @allure.step("Set e-mail address - {1}")
-    def set_email_address(self, email):
-        self.logger.info("Set e-mail address - {e}".format(e=email))
-        self.driver.find_element(*self.email_input).clear()
-        self.driver.find_element(*self.email_input).send_keys(email)
-        allure.attach(self.driver.get_screenshot_as_png(), name='set_email_address', attachment_type=AttachmentType.PNG)
 
     @allure.step("Save address")
     def save_address(self):

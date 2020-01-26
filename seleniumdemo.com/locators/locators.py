@@ -19,7 +19,7 @@ class MyAccountMenuLocators:
 
 
 class BillingAddressLocators:
-    edit_billing_address_a = (By.XPATH, "//h3[text()='Billing address']/following-sibling::a")
+    edit_billing_address_link = (By.XPATH, "//h3[text()='Billing address']/following-sibling::a")
     first_name_input = (By.ID, "billing_first_name")
     last_name_input = (By.ID, "billing_last_name")
     country_select = (By.ID, "billing_country")
@@ -27,18 +27,18 @@ class BillingAddressLocators:
     postcode_input = (By.ID, "billing_postcode")
     city_input = (By.ID, "billing_city")
     phone_input = (By.ID, "billing_phone")
+    email_input = (By.ID, "billing_email")
     save_address_button = (By.XPATH, "//button[@value='Save address']")
 
 
 class ShippingAddressLocators:
-    edit_shipping_address_a = (By.XPATH, "//h3[text()='Shipping address']/following-sibling::a")
+    edit_shipping_address_link = (By.XPATH, "//h3[text()='Shipping address']/following-sibling::a")
     first_name_input = (By.ID, "shipping_first_name")
     last_name_input = (By.ID, "shipping_last_name")
     country_select = (By.ID, "shipping_country")
     address_input = (By.ID, "shipping_address_1")
     postcode_input = (By.ID, "shipping_postcode")
     city_input = (By.ID, "shipping_city")
-    phone_input = (By.ID, "shipping_phone")
     save_address_button = (By.XPATH, "//button[@value='Save address']")
 
 
@@ -55,3 +55,9 @@ class ResetPasswordLocators:
     lost_password_link = (By.LINK_TEXT, "Lost your password?")
     user_login_input = (By.ID, "user_login")
     reset_password_button = (By.XPATH, "//button[@value='Reset password']")
+
+
+class SearchProductsLocators:
+    search_window_link = (By.LINK_TEXT, "Search")
+    search_name_input = (By.XPATH, "//div[contains(@class, 'in-focus')]//input")
+    search_results_link = (By.CLASS_NAME, "entry-title")

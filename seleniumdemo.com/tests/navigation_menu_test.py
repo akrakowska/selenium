@@ -1,6 +1,4 @@
 from pages.generic import Generic
-from pages.my_account_page import MyAccountPage
-import random
 import pytest
 import allure
 from pages.navigation_menu import NavigationMenu
