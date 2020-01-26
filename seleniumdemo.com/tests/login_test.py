@@ -7,7 +7,7 @@ import allure
 @pytest.mark.usefixtures("setup")
 class TestLogIn:
 
-    @allure.title("Login passed")
+    @allure.title("TC03: Login passed")
     @allure.description("Login using correct data")
     def test_log_in_passed(self):
         my_account_page = MyAccountPage(self.driver)
@@ -16,7 +16,7 @@ class TestLogIn:
 
         assert "Hello test" in my_account_page.get_login_msg_text()
 
-    @allure.title("Login failed")
+    @allure.title("TC04: Login failed")
     @allure.description("Login using incorrect data")
     def test_log_in_failed(self):
         my_account_page = MyAccountPage(self.driver)

@@ -7,7 +7,7 @@ import allure
 @pytest.mark.usefixtures("setup")
 class TestSearchProducts:
 
-    @allure.title("Search products passed")
+    @allure.title("TC14: Search products passed")
     @allure.description("Search using correct product name")
     def test_search_products_passed(self):
         open_home = Generic(self.driver)
@@ -20,7 +20,7 @@ class TestSearchProducts:
         for result in results:
             assert "selenium" in result.lower()
 
-    @allure.title("Search products failed")
+    @allure.title("TC15: Search products failed")
     @allure.description("Search using incorrect product name")
     def test_search_products_failed(self):
         open_home = Generic(self.driver)

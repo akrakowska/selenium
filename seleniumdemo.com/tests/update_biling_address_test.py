@@ -9,7 +9,7 @@ import allure
 @pytest.mark.usefixtures("setup")
 class TestUpdateBillingAddress:
 
-    @allure.title("Update billing address passed")
+    @allure.title("TC10: Update billing address passed")
     @allure.description("Update billing address with correct data")
     def test_update_billing_address_passed(self):
         email = "test{}@mail.com".format(random.randint(0,10000))
@@ -28,7 +28,7 @@ class TestUpdateBillingAddress:
 
         assert "Address changed successfully." in generic.get_msg_text()
 
-    @allure.title("Update billing address failed")
+    @allure.title("TC11: Update billing address failed")
     @allure.description("Update billing address with incomplete data")
     def test_update_billing_address_failed(self):
         email = "test{}@mail.com".format(random.randint(0,10000))

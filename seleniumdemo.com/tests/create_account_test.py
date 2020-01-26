@@ -7,7 +7,7 @@ import allure
 @pytest.mark.usefixtures("setup")
 class TestCreateAccount:
 
-    @allure.title("Create account passed")
+    @allure.title("TC01: Create account passed")
     @allure.description("Create account using correct data")
     def test_create_account_passed(self):
         email = "test{}@mail.com".format(random.randint(0,10000))
@@ -17,7 +17,7 @@ class TestCreateAccount:
 
         assert "Hello {}".format(email.split("@")[0]) in my_account_page.get_login_msg_text()
 
-    @allure.title("Create account failed")
+    @allure.title("TC02: Create account failed")
     @allure.description("Create account using incorrect data")
     def test_create_account_failed(self):
         my_account_page = MyAccountPage(self.driver)

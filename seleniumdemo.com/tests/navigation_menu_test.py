@@ -7,8 +7,8 @@ from pages.navigation_menu import NavigationMenu
 @pytest.mark.usefixtures("setup")
 class TestNavigationMenu:
 
-    @allure.title("Navigation menu - Cart")
-    @allure.description("Move to subpage Cart using Navigaton Menu")
+    @allure.title("TC07: Navigation menu - Cart")
+    @allure.description("Go to subpage Cart using Navigation Menu")
     def test_move_cart(self):
         open_home = Generic(self.driver)
         open_home.open_home()
@@ -17,8 +17,8 @@ class TestNavigationMenu:
 
         assert "Cart" in nav_menu.get_page_title()
 
-    @allure.title("Navigation menu - Shop")
-    @allure.description("Move to subpage Shop using Navigaton Menu")
+    @allure.title("TC08: Navigation menu - Shop")
+    @allure.description("Go to subpage Shop using Navigation Menu")
     def test_move_shop(self):
         open_home = Generic(self.driver)
         open_home.open_home()
@@ -27,8 +27,8 @@ class TestNavigationMenu:
 
         assert "Shop" in nav_menu.get_page_title()
 
-    @allure.title("Navigation menu - My account")
-    @allure.description("Move to subpage My account using Navigaton Menu")
+    @allure.title("TC09: Navigation menu - My account")
+    @allure.description("Go to subpage My account using Navigation Menu")
     def test_move_my_account(self):
         open_home = Generic(self.driver)
         open_home.open_home()

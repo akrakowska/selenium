@@ -6,7 +6,7 @@ import allure
 @pytest.mark.usefixtures("setup")
 class TestResetPassword:
 
-    @allure.title("Reset password passed")
+    @allure.title("TC05: Reset password passed")
     @allure.description("Reset password using correct data")
     def test_reset_password_passed(self):
         my_account_page = MyAccountPage(self.driver)
@@ -16,7 +16,7 @@ class TestResetPassword:
 
         assert "Password reset email has been sent." in generic.get_msg_text()
 
-    @allure.title("Reset password failed")
+    @allure.title("TC06: Reset password failed")
     @allure.description("Reset password using incorrect data")
     def test_reset_password_failed(self):
         my_account_page = MyAccountPage(self.driver)
